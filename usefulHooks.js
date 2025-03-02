@@ -1,6 +1,9 @@
+import { useRef, useEffect, useCallback, useState } from 'react';
+
 /*
  * custom hook for getting previous state
  */
+
 const usePrevious = (value) => {
   const ref = useRef();
   useEffect(() => {
@@ -9,6 +12,9 @@ const usePrevious = (value) => {
   return ref.current;
 };
 
+/*
+ * custom hook to execute useEffect only after the component has been mounted (not on first render)
+ */
 const useEffectAfterMount = (callback, dependencies) => {
   const componentJustMounted = useRef(true);
 
